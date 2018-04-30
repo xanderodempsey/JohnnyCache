@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block store %}
+<div style=font-size:24px; font-weight:bold; margin-left:150px; xmlns:margin-left="http://www.w3.org/1999/xhtml"
+     xmlns:font-weight="http://www.w3.org/1999/xhtml">
+    <form action="/messages" method ="POST">
+        <fieldset>
+            <legend>Store Document</legend>
+            {{ storeDoc.hidden_tag() }}
+
+            <div style=font-size:20px; font-weight:bold; margin-left:150px;>
+                {{ storeDoc.id.label }}
+                <br>
+                {{ storeDoc.id }}
+                {% for message in storeDoc.id.errors %}
+                    <div>{{message}}</div>
+                {% endfor %}
+                <br>
+
+                {{ storeDoc.message.label }}
+                <br>
+                {{ storeDoc.message }}
+                {% for message in storeDoc.message.errors %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+                <br>
+
+                {{ storeDoc.ttl.label }}
+                <br>
+                {{ storeDoc.ttl }}
+                {% for message in storeDoc.ttl.errors %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+                <br>
+
+                {{ storeDoc.submit }}
+                {% if store_success %}
+                    <p>Stored successfully</p>
+                {% endif %}
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

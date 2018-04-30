@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block view %}
+
+<div style=font-size:24px; font-weight:bold; margin-left:150px; xmlns:margin-left="http://www.w3.org/1999/xhtml"
+     xmlns:font-weight="http://www.w3.org/1999/xhtml">
+    {% if text is defined %}
+		<p>id: {{id}}<p>
+		<p>message: {{text}}</p>
+	{% else %}
+		<p>Resource not found</p>
+	{% endif %}
+</div>
+
+{% endblock %}
